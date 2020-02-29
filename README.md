@@ -14,8 +14,8 @@ python MainWindow.py
 
 pyqt5、numpy、sounddevice、soundfile、PIL、scipy等等，这些如果没有看看报错就能pip安装。比较麻烦的是要安装这两个东西，一个是pyaudio库[参考博文](https://blog.csdn.net/zhl555666/article/details/82947654)先从[这个](https://github.com/intxcc/pyaudio_portaudio)或者[这个](https://github.com/intxcc/pyaudio_portaudio/releases)下载轮子(.whl文件)，然后到你轮子文件目录下执行 
 
-```python
-python.exe .\setup.py install --static-link
+```powershell
+python.exe ./setup.py install --static-link
 ```
 
 命令，才能安装上(安装完成之后import一下试试)
@@ -33,6 +33,8 @@ python.exe .\setup.py install --static-link
 2、可以录制系统声音和麦克风声音，如果不录声音后来视频速度可能会莫名变快所以不建议这样做。
 
 3、提示还没实现，就看这个MarkDown就够了。
+
+4、想用pyinstaller打包成EXE文件的来着，但是可能是因为ffmpeg没法打包进来的原因，最后能执行但是视频音频没法合成。如果想尝试的童鞋给你们俩思路，一个是把ffmpeg包拷贝到打包好的目录底下，另一个是把源码record.py中FFmpegThread类下最后几行的删除avi与wav文件注释掉，然后你在命令行下用ffmpeg把这若干个文件拼接起来就行。
 
 # 以上
 
